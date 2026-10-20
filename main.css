@@ -1,0 +1,301 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background: #000 !important;
+    background: #4660d1;
+}
+
+iframe {
+	border: 0;
+	height: 100vh;
+	width: 100vw;
+	z-index: 1;
+	position: relative;
+}
+
+#addComment {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	cursor: pointer;
+	width: 2rem;
+	height: 2rem;
+	background: #4660d1;
+	background-size: contain;
+	z-index: 100;
+	border-radius: 50%;
+}
+#addComment::after {
+    content: " ";
+	height: 2rem;
+	width: calc(10px + 1rem);
+	position: absolute;
+	top: 0;
+	left: -10px;
+	width: calc(10px + 1rem);
+	background: #4660d1;
+	z-index: -1;
+}
+
+#addComment img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+#depart {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+    background: #697dd1;
+	color: #FFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	flex-direction: column;
+	gap: 2rem;
+	font-size: 1.3rem;
+	text-align: center;
+	z-index: 500;
+}
+
+.proj {
+    border: 2px solid #697dd1;
+    border-radius: 0.5rem;
+    transition: all .5s;
+    background-color: #fff;
+}
+.proj:hover {
+    background-color: #4660d1;
+    color: #fff;
+}
+#fullscreen-btn2, #fullscreen-btn {
+    background-color: #000;
+    color: #fff;
+}
+button {
+    cursor: pointer;;
+}
+
+.icon {
+	width: 4rem;
+	height: 4rem;
+}
+
+button, input {
+	border: 0;
+	padding: 0.5rem 1rem;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+#listeProject {
+	display: none;
+}
+
+.formulaire {
+	display: none;
+	width: 600px;
+	margin-left: -10px;
+}
+
+.formulaire.on {
+	display: block;
+	cursor: default;
+}
+    /* Styles pour les commentaires */
+.wrapperComments {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 1rem;
+	max-height: 70vh;
+	overflow-y: auto;
+	background-color: rgba(70, 96, 209, 1);
+	color: white;
+	border-radius: 8px;
+    border-bottom: 5px solid #FFF;
+}
+
+.comment {
+	margin-bottom: 0.5rem;
+	background: #4660d1;
+}
+
+.comment.child, .first {
+	padding: 0.5rem 1rem;
+	border-radius: 1rem;
+      /* margin-left: 3rem; */
+	width: 90%;
+	box-sizing: border-box;
+}
+
+.first {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.first.mine, .comment.child.mine {
+	background: #000;
+	color: #FFF;
+}
+
+.first .textes {
+	width: calc(100% - 220px);
+}
+
+.screenshot {
+	width: 200px;
+    cursor: pointer;
+    position: relative;
+}
+.screenshot::after {
+	content: " ";
+    position: absolute;
+    z-index: 10;
+    bottom: .5rem;
+    right: .5rem;
+    width: 2rem;
+    height: 2rem;
+    background: url(edit.svg) center center no-repeat #fff;
+    background-size: 60%;
+    border-radius: 50%;
+    background-position: 55% 50%;
+}
+
+.screenshot img {
+	width: 100%;
+	height: auto;
+}
+
+.first.notmine, .comment.child.notmine {
+	background: #FFF !important;
+	color: #000 !important;
+	margin-left: 10%;
+}
+
+.comment label {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 0.3rem;
+}
+
+.comment .description {
+	margin-bottom: 0.5rem;
+	white-space: pre-wrap;
+ /* Pour conserver les sauts de ligne */;
+}
+
+.comment .time {
+	font-size: 0.8rem;
+	margin-bottom: 0.5rem;
+	font-style: italic;
+	width: 100%;
+}
+
+.answers {
+	margin-top: 0.5rem;
+	max-height: 34vh;
+	overflow: auto;
+	padding-right: 1rem;
+}
+
+.answer-form {
+	margin-top: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.answer-form textarea {
+	width: 100%;
+	min-height: 60px;
+	padding: 0.5rem;
+	border: 1px solid #4660d1;
+	border-radius: 4px;
+	background-color: #f8f9fa;
+	color: #000;
+	box-sizing: border-box;
+}
+
+.answer-form button {
+	align-self: flex-end;
+	padding: 0.3rem 0.6rem;
+	background-color: #000;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+    transition: all .5s;
+    border-bottom: 2px solid transparent;
+}
+
+.answer-form button:hover {
+	background-color: #3a52b8;    
+    border-bottom: 2px solid #FFF;
+}
+
+.listMyProjects {
+	margin-bottom: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.listMyProjects button {
+	max-width: 200px;
+}
+
+.popupDrawing {
+	display: none;
+}
+
+.popupDrawing.on {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	z-index: 10;
+	background: #0000008c;
+	width: 100vw;
+	height: 100vh;
+}
+.popupDrawing.on.waiting::after {
+	content: " ";
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    width: 5rem;
+    height: 5rem;
+    transform: translate(-50%, -50%);
+    background: url(loading.gif) center center no-repeat;
+    background-size: contain;
+
+}
+
+#myCanvas {
+	width: 80%;
+	height: 80%;
+	object-fit: contain;
+}
+#save {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+}
+#closePop {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
